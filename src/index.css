@@ -33,6 +33,42 @@ body {
   }
 }
 
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-10px) translateX(6px);
+  }
+  66% {
+    transform: translateY(-4px) translateX(-6px);
+  }
+}
+
+@keyframes driftSlow {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(25px, -30px) rotate(8deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes driftReverse {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30px, 25px) rotate(-8deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
 @keyframes auraPulse {
   0%, 100% {
     opacity: 0.35;
@@ -44,6 +80,17 @@ body {
   }
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
+  }
+  50% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 16px rgba(129, 140, 248, 0.6));
+  }
+}
+
 .animate-float-gentle {
   animation: floatGentle 4.5s ease-in-out infinite;
 }
@@ -52,7 +99,52 @@ body {
   animation: floatReverse 5s ease-in-out infinite;
 }
 
+.animate-float-sway {
+  animation: floatSway 6s ease-in-out infinite;
+}
+
+.animate-drift-slow {
+  animation: driftSlow 14s ease-in-out infinite;
+}
+
+.animate-drift-reverse {
+  animation: driftReverse 16s ease-in-out infinite;
+}
+
 .animate-aura-pulse {
   animation: auraPulse 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Scroll Reveal Utility Classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
 }
 

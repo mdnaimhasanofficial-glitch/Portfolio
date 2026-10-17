@@ -1,6 +1,6 @@
 import project1 from "../assets/projects/project01.png";
 import project2 from "../assets/projects/project02.png";
-import project3 from "../assets/projects/project3.svg";
+import project3 from "../assets/projects/project03.png";
 
 const projects = [
   {
@@ -61,27 +61,28 @@ const projects = [
     id: 3,
     title: "Developer Portfolio & Interactive Showcase",
     image: project3,
-    category: "Personal Project • Portfolio & ATS Resume",
+    category: "Personal Project • Modern Portfolio & ATS Resume",
     technologies: [
       "React.js",
       "Tailwind CSS",
       "JavaScript (ES6+)",
       "React Router",
-      "Vite"
+      "Vite",
+      "Vercel"
     ],
     description:
-      "A modern, high-performance personal portfolio built to showcase MERN stack and frontend engineering skills, featuring glassmorphism design, active scroll spy, and an ATS-friendly printable resume viewer.",
-    live: "https://fit-log-phi-henna.vercel.app/",
+      "A modern, high-performance personal portfolio built to showcase MERN stack and frontend engineering skills, featuring glassmorphism design, active scroll spy, custom slate color palette, and an ATS-friendly printable resume viewer.",
+    live: "https://portfolio-chi-henna-74.vercel.app/",
     github: "https://github.com/mdnaimhasanofficial-glitch",
     challenges: [
       "Crafted an ATS-compatible, print-optimized resume stylesheet in React.",
-      "Engineered glassmorphic design system with modern typography and animations.",
+      "Engineered clean modern design system with curated slate dark palette and micro-interactions.",
       "Ensured fluid responsiveness across ultra-wide monitors down to small mobile viewports."
     ],
     future: [
-      "Dark / Light theme mode toggle with localStorage persistence",
       "Interactive blog section powered by markdown rendering",
-      "Full-stack contact form with automated email notification via Node.js"
+      "Full-stack contact form with automated email notification via Node.js",
+      "Internationalization (i18n) support for multiple languages"
     ],
   },
 ];

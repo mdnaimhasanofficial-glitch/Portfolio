@@ -27,10 +27,10 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus({
         submitting: false,
         submitted: false,
@@ -41,16 +41,55 @@ const Contact = () => {
 
     setStatus({ submitting: true, submitted: false, error: null });
 
-    // Simulate sending message
-    setTimeout(() => {
-      setStatus({ submitting: false, submitted: true, error: null });
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    try {
+      const accessKey =
+        import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
+        "871c5739-104f-4f57-8e82-24e428133816";
 
-      // Auto-hide success message after 6 seconds
-      setTimeout(() => {
-        setStatus((prev) => ({ ...prev, submitted: false }));
-      }, 6000);
-    }, 1000);
+      const payload = new FormData();
+      payload.append("access_key", accessKey);
+      payload.append("name", formData.name.trim());
+      payload.append("email", formData.email.trim());
+      payload.append(
+        "subject",
+        formData.subject.trim() || `Portfolio Contact Message from ${formData.name.trim()}`
+      );
+      payload.append("message", formData.message.trim());
+      payload.append("from_name", "Portfolio Visitor");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: payload,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({ submitting: false, submitted: true, error: null });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+
+        // Auto-hide success message after 7 seconds
+        setTimeout(() => {
+          setStatus((prev) => ({ ...prev, submitted: false }));
+        }, 7000);
+      } else {
+        setStatus({
+          submitting: false,
+          submitted: false,
+          error:
+            data.message ||
+            "Unable to send message at the moment. Please email directly at mdnaimhasan.official@gmail.com",
+        });
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error:
+          "Network error occurred. Please try again or reach out directly at mdnaimhasan.official@gmail.com",
+      });
+    }
   };
 
   return (

@@ -276,6 +276,17 @@ const Hero = () => {
                 </div>
               </div>
 
+              {/* Floating Pill: Bottom-Left Tech Tag */}
+              <div className="hidden sm:flex absolute -bottom-4 -left-5 z-20 items-center gap-2.5 bg-[#1E293B]/95 backdrop-blur-xl border border-slate-700/80 rounded-2xl px-3.5 py-2 shadow-xl animate-float-reverse ring-1 ring-slate-900/20">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-400 to-[#38BDF8] text-[#0F172A] flex items-center justify-center font-bold text-xs shadow-md shadow-emerald-500/20">
+                  <span className="font-mono font-black">TS</span>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#F8FAFC]">Node &amp; Express</p>
+                  <p className="text-[10px] text-emerald-400 font-semibold">MERN Backend</p>
+                </div>
+              </div>
+
               {/* Color Theme Selector Bar */}
               <div className="mt-4 p-2.5 px-4 rounded-2xl bg-[#1E293B]/90 backdrop-blur-xl border border-slate-700/80 shadow-md flex items-center justify-between gap-2">
                 <span className="text-xs font-bold text-[#94A3B8] flex items-center gap-1.5">

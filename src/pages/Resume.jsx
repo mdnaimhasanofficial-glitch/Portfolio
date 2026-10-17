@@ -62,15 +62,29 @@ const Resume = () => {
       ],
       color: "emerald",
     },
+    {
+      name: "Developer Portfolio & Interactive Showcase",
+      type: "Personal Project",
+      link: "https://portfolio-chi-henna-74.vercel.app/",
+      stack: "React.js • Tailwind CSS • Vite • Vercel",
+      description:
+        "A modern personal portfolio built with React.js and Tailwind CSS featuring a glassmorphic dark slate aesthetic, active scroll spy navigation, and an ATS-friendly printable resume viewer.",
+      points: [
+        "Engineered an interactive, high-performance portfolio showcasing full-stack capabilities.",
+        "Built an ATS-compliant printable resume viewer with responsive layouts.",
+        "Deployed with automated CI/CD workflows on Vercel with clean Lighthouse performance.",
+      ],
+      color: "sky",
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-8 font-sans text-slate-800 sm:px-6 print:bg-white print:p-0">
+    <main className="min-h-screen bg-[#0F172A] px-4 py-8 font-sans text-slate-800 sm:px-6 print:bg-white print:p-0">
       {/* Action Bar */}
       <div className="mx-auto mb-6 flex max-w-4xl items-center justify-between gap-3 print:hidden">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold transition hover:border-blue-500 hover:text-blue-600"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-[#1E293B] px-4 py-2.5 text-sm font-semibold text-[#F8FAFC] transition hover:border-[#38BDF8] hover:text-[#38BDF8]"
         >
           <HiArrowLeft />
           Portfolio
@@ -78,7 +92,7 @@ const Resume = () => {
 
         <button
           onClick={handlePrint}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-[#38BDF8] to-[#818CF8] px-4 py-2.5 text-sm font-bold text-[#0F172A] transition hover:opacity-90 shadow-lg shadow-sky-500/20"
         >
           <HiPrinter className="text-lg" />
           Print / Save PDF
