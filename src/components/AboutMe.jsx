@@ -11,7 +11,7 @@ import {
 } from "react-icons/hi";
 import { FaLaptopCode, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb, SiTypescript } from "react-icons/si";
-import heroImg from "../assets/hero.png";
+import profileImg from "../assets/profile.jpg";
 
 const AboutMe = () => {
   const highlights = [
@@ -71,12 +71,15 @@ const AboutMe = () => {
             <div className="w-32 h-32 bg-gradient-to-tr from-blue-500/15 to-indigo-500/15 rounded-full blur-2xl absolute -top-4 -right-4 -z-10"></div>
 
             <div className="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/25 shrink-0 ring-2 ring-white/50">
-                <img
-                  src={heroImg}
-                  alt="Md Naim Hasan"
-                  className="w-10 h-10 object-contain brightness-200"
-                />
+              <div className="relative">
+                <div className="w-18 h-18 rounded-2xl p-[2px] bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 shadow-lg shadow-blue-500/25 shrink-0">
+                  <img
+                    src={profileImg}
+                    alt="Md Naim Hasan"
+                    className="w-full h-full object-cover rounded-[14px]"
+                  />
+                </div>
+                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
               </div>
               <div>
                 <h3 className="text-xl font-extrabold text-slate-900">Md Naim Hasan</h3>

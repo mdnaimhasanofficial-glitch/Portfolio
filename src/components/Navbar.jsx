@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenuAlt3, HiX, HiDocumentText } from "react-icons/hi";
+import profileImg from "../assets/profile.jpg";
 
 const navLinks = [
   { name: "Home", id: "home" },
@@ -71,10 +72,13 @@ const Navbar = () => {
           className="group flex items-center gap-3 select-none"
         >
           <div className="relative">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 opacity-25 blur-sm group-hover:opacity-50 transition duration-300"></div>
-            <span className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white font-mono font-bold text-base sm:text-lg shadow-md ring-1 ring-white/30 group-hover:scale-105 transition-transform duration-300">
-              N
-            </span>
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 opacity-30 blur-sm group-hover:opacity-75 transition duration-300"></div>
+            <img
+              src={profileImg}
+              alt="Md Naim Hasan"
+              className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover ring-2 ring-blue-500/60 shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
+            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
           </div>
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors flex items-center">

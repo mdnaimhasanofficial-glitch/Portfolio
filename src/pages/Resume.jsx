@@ -9,6 +9,7 @@ import {
   HiExternalLink,
 } from "react-icons/hi";
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import profileImg from "../assets/profile.jpg";
 
 const Resume = () => {
   const handlePrint = () => window.print();
@@ -88,21 +89,28 @@ const Resume = () => {
       <article className="mx-auto max-w-4xl rounded-xl border border-slate-200 bg-white p-6 shadow-xl sm:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
         {/* Header */}
         <header className="border-b-2 border-blue-600 pb-5">
-          <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-            <div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
-                Md Naim Hasan
-              </h1>
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-4">
+              <img
+                src={profileImg}
+                alt="Md Naim Hasan"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover ring-2 ring-blue-600 shadow-md shrink-0"
+              />
+              <div>
+                <h1 className="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                  Md Naim Hasan
+                </h1>
 
-              <p className="mt-2 text-lg font-bold text-blue-600">
-                MERN Stack Intern | Junior Web Developer
-              </p>
+                <p className="mt-1 text-base sm:text-lg font-bold text-blue-600">
+                  MERN Stack Intern | Junior Web Developer
+                </p>
 
-              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
-                Aspiring full-stack developer focused on building responsive
-                web applications with React, Next.js, TypeScript, Node.js,
-                Express.js, and MongoDB.
-              </p>
+                <p className="mt-1 max-w-xl text-xs sm:text-sm leading-5 text-slate-600">
+                  Aspiring full-stack developer focused on building responsive
+                  web applications with React, Next.js, TypeScript, Node.js,
+                  Express.js, and MongoDB.
+                </p>
+              </div>
             </div>
 
             <div className="shrink-0 sm:text-right">
