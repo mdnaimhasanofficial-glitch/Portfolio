@@ -60,26 +60,26 @@ const valueProps = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    <section id="experience" className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-[#0F172A]">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#38BDF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#818CF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xl border border-blue-200/70 text-blue-700 text-xs font-bold uppercase tracking-wider shadow-xs">
-          <HiOutlineSparkles className="text-blue-600 text-sm" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E293B] border border-[#38BDF8]/30 text-[#38BDF8] text-xs font-bold uppercase tracking-wider shadow-sm">
+          <HiOutlineSparkles className="text-[#38BDF8] text-sm" />
           <span>Internship &amp; Training</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F8FAFC] tracking-tight">
           Experience &amp;{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#38BDF8]">
             Training
           </span>
         </h2>
 
-        <p className="text-base sm:text-lg text-slate-600">
+        <p className="text-base sm:text-lg text-[#94A3B8]">
           Practical industry training, internship experience, and hands-on software development education.
         </p>
       </div>
@@ -90,51 +90,51 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative bg-white/75 hover:bg-white/95 backdrop-blur-2xl rounded-3xl border border-white/90 hover:border-blue-300 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all duration-300 p-6 sm:p-8 ring-1 ring-slate-900/5"
+              className="relative bg-[#1E293B] rounded-3xl border border-slate-700/70 hover:border-[#38BDF8]/60 shadow-xl transition-all duration-300 p-6 sm:p-8"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                 <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">
+                  <h3 className="text-xl font-extrabold text-[#F8FAFC]">
                     {exp.role}
                   </h3>
-                  <p className="text-base font-bold text-blue-600 mt-0.5">
+                  <p className="text-base font-bold text-[#38BDF8] mt-0.5">
                     {exp.company}
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className={`text-xs font-bold px-3 py-1 rounded-full border ${exp.badgeColor}`}>
+                  <span className="text-xs font-bold px-3 py-1 rounded-full border bg-[#0F172A] text-emerald-400 border-emerald-500/30">
                     {exp.type}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 bg-slate-100/80 px-2.5 py-1 rounded-full">
-                    <HiOutlineCalendar />
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#94A3B8] bg-[#0F172A] px-2.5 py-1 rounded-full border border-slate-700">
+                    <HiOutlineCalendar className="text-[#38BDF8]" />
                     {exp.period}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-4">
-                <HiOutlineLocationMarker className="text-blue-500" />
+              <div className="flex items-center gap-1.5 text-xs text-[#94A3B8] mb-4">
+                <HiOutlineLocationMarker className="text-[#38BDF8]" />
                 <span>{exp.location}</span>
               </div>
 
               {/* Responsibilities list */}
-              <ul className="space-y-2 mb-6 text-sm text-slate-600">
+              <ul className="space-y-2 mb-6 text-sm text-[#94A3B8]">
                 {exp.responsibilities.map((resp, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <HiOutlineCheckCircle className="text-emerald-500 text-lg shrink-0 mt-0.5" />
+                    <HiOutlineCheckCircle className="text-[#38BDF8] text-lg shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{resp}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Tech Stack Pills */}
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
-                <span className="text-xs font-bold text-slate-400 mr-1 uppercase">Stack:</span>
+              <div className="pt-4 border-t border-slate-700/60 flex flex-wrap items-center gap-1.5">
+                <span className="text-xs font-bold text-[#94A3B8] mr-1 uppercase">Stack:</span>
                 {exp.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-0.5 text-xs font-semibold rounded-lg bg-blue-50/80 text-blue-700 border border-blue-200/50"
+                    className="px-2.5 py-0.5 text-xs font-semibold rounded-lg bg-[#0F172A] text-[#38BDF8] border border-slate-700"
                   >
                     {tech}
                   </span>
@@ -146,8 +146,8 @@ const Experience = () => {
 
         {/* Right Column: Value Props Cards (4 Cols) */}
         <div className="lg:col-span-4 space-y-4">
-          <div className="bg-white/70 backdrop-blur-xl rounded-3xl border border-white/80 p-6 shadow-sm space-y-5">
-            <h3 className="text-lg font-extrabold text-slate-900 border-b border-slate-100 pb-3">
+          <div className="bg-[#1E293B] rounded-3xl border border-slate-700/80 p-6 shadow-xl space-y-5">
+            <h3 className="text-lg font-extrabold text-[#F8FAFC] border-b border-slate-700/70 pb-3">
               Why Work With Me
             </h3>
 
@@ -155,14 +155,14 @@ const Experience = () => {
               const Icon = prop.icon;
               return (
                 <div key={idx} className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
-                    <Icon className="text-lg" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#38BDF8] to-[#818CF8] text-[#0F172A] flex items-center justify-center shrink-0 shadow-md">
+                    <Icon className="text-lg text-[#0F172A]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-sm font-bold text-[#F8FAFC]">
                       {prop.title}
                     </h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                    <p className="text-xs text-[#94A3B8] mt-1 leading-relaxed">
                       {prop.desc}
                     </p>
                   </div>

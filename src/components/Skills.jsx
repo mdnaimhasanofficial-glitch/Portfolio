@@ -236,32 +236,32 @@ const Skills = () => {
       : skillsData.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    <section id="skills" className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-[#0F172A]">
       {/* Background Ambient Glows */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-20 right-10 w-96 h-96 bg-[#38BDF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#818CF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xl border border-blue-200/70 text-blue-700 text-xs font-bold uppercase tracking-wider shadow-xs">
-          <HiOutlineSparkles className="text-blue-600 text-sm" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E293B] border border-[#38BDF8]/30 text-[#38BDF8] text-xs font-bold uppercase tracking-wider shadow-sm">
+          <HiOutlineSparkles className="text-[#38BDF8] text-sm" />
           <span>Technical Expertise</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F8FAFC] tracking-tight">
           Skills &amp;{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#38BDF8]">
             Technologies
           </span>
         </h2>
 
-        <p className="text-base sm:text-lg text-slate-600">
+        <p className="text-base sm:text-lg text-[#94A3B8]">
           The core tools, languages, and frameworks I use to build modern MERN stack and frontend applications.
         </p>
 
-        {/* Glass Capsule Category Filter Tabs */}
+        {/* Capsule Category Filter Tabs */}
         <div className="pt-6 flex flex-wrap items-center justify-center gap-2">
-          <div className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-full bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-inner gap-1">
+          <div className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-full bg-[#1E293B] border border-slate-700/80 shadow-inner gap-1">
             {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
@@ -271,8 +271,8 @@ const Skills = () => {
                   onClick={() => setActiveCategory(category.id)}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-white/80"
+                      ? "bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0F172A] font-bold shadow-md shadow-[#38BDF8]/25"
+                      : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#0F172A]/50"
                   }`}
                 >
                   {Icon && <Icon className="text-base" />}
@@ -284,38 +284,38 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Frosted Glass Skills Grid */}
+      {/* Skills Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {filteredSkills.map((skill) => {
           const Icon = skill.icon;
           return (
             <div
               key={skill.name}
-              className="group relative bg-white/70 hover:bg-white/95 backdrop-blur-xl rounded-2xl border border-white/80 hover:border-blue-400/60 p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="group relative bg-[#1E293B] hover:bg-[#1E293B]/95 rounded-2xl border border-slate-700/70 hover:border-[#38BDF8]/60 p-5 shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Glass Top Highlight */}
+              {/* Card Top */}
               <div className="flex items-start justify-between gap-3 mb-4">
-                <div className={`p-3 rounded-xl border ${skill.bg} group-hover:scale-110 transition-transform duration-300 shadow-xs`}>
-                  <Icon className={`text-2xl ${skill.color}`} />
+                <div className="p-3 rounded-xl border bg-[#0F172A] border-slate-700 text-[#38BDF8] group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <Icon className="text-2xl text-[#38BDF8]" />
                 </div>
-                <span className="text-[11px] font-bold text-blue-700 bg-blue-50/90 border border-blue-200/60 px-2.5 py-0.5 rounded-full shadow-xs">
+                <span className="text-[11px] font-bold text-[#38BDF8] bg-[#0F172A] border border-[#38BDF8]/30 px-2.5 py-0.5 rounded-full shadow-xs">
                   {skill.badge}
                 </span>
               </div>
 
               <div>
-                <h3 className="text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-base font-extrabold text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors">
                   {skill.name}
                 </h3>
-                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                <p className="text-xs text-[#94A3B8] mt-1.5 leading-relaxed">
                   {skill.description}
                 </p>
               </div>
 
               {/* Bottom Subtle Bar */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+              <div className="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-[11px] text-[#94A3B8] font-semibold uppercase tracking-wider">
                 <span>{skill.category}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover:bg-blue-600 transition-colors"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] transition-colors"></span>
               </div>
             </div>
           );
