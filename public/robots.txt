@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-chi-henna-74.vercel.app/sitemap.xml

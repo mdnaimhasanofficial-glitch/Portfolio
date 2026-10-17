@@ -92,6 +92,7 @@ const Hero = () => {
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#F8FAFC] tracking-tight leading-tight">
               Md Naim Hasan
+              <span className="sr-only"> - Developer Naim | MERN Developer Naim</span>
               <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#38BDF8]">
                 MERN Stack &amp; React Developer
               </span>
@@ -220,7 +221,7 @@ const Hero = () => {
                   <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0F172A]">
                     <img
                       src={profileImg}
-                      alt="Md Naim Hasan - MERN Stack Developer"
+                      alt="Developer Naim - Md Naim Hasan MERN Stack Developer"
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
 
