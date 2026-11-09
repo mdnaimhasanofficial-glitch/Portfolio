@@ -11,6 +11,12 @@ const ScrollReveal = ({
   const domRef = useRef(null);
 
   useEffect(() => {
+    // Respect prefers-reduced-motion: show content immediately, no animations
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

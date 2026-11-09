@@ -1,129 +1,256 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Design Tokens — Futuristic Charcoal Theme
+   Deep black base, neon cyan / electric blue / violet accents
+   ============================================================ */
+@theme {
+  /* Surfaces (deep black → charcoal) */
+  --color-elev: #0a0f1a;
+  --color-card: #0d1424;
+  --color-panel: #070b14;
+  --color-line: #1b2440;
+
+  /* Text */
+  --color-fg: #edf2fb;
+  --color-muted: #8a97ad;
+
+  /* Neon accents */
+  --color-neon: #22d3ee;
+  --color-electric: #4f8dff;
+  --color-vio: #8b5cf6;
+  --color-lilac: #c4b5fd;
+
+  /* Dark ink — page base and text on neon/gradient buttons.
+     Deliberately NOT named "base" to avoid colliding with the
+     font-size utility `text-base`. */
+  --color-ink: #05070d;
+
+  /* Typography */
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Glow shadows */
+  --shadow-glow-neon: 0 0 24px rgba(34, 211, 238, 0.25);
+  --shadow-glow-vio: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
 :root {
-  --bg-dark: #0F172A;
-  --card-dark: #1E293B;
-  --accent-primary: #38BDF8;
-  --accent-secondary: #818CF8;
-  --text-main: #F8FAFC;
-  --text-muted: #94A3B8;
+  --bg-base: #05070d;
+  --bg-card: #0d1424;
+  --accent-neon: #22d3ee;
+  --accent-electric: #4f8dff;
+  --accent-vio: #8b5cf6;
+  --text-main: #edf2fb;
+  --text-muted: #8a97ad;
+  color-scheme: dark;
+}
+
+/* ── Light theme overrides (applied via data-theme="light" on <html>) ── */
+[data-theme="light"] {
+  --bg-base: #f4f7fc;
+  --bg-card: #ffffff;
+  --text-main: #101b2e;
+  --text-muted: #5a6a83;
+  color-scheme: light;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-strong-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(13, 42, 84, 0.12);
+
+  /* Flip the Tailwind @theme token values */
+  --color-ink: #f4f7fc;
+  --color-elev: #fbfcfe;
+  --color-card: #ffffff;
+  --color-panel: #eef2f9;
+  --color-line: #dde5f0;
+  --color-fg: #101b2e;
+  --color-muted: #5a6a83;
+  --color-neon: #0891b2;
+  --color-electric: #2563eb;
+  --color-vio: #7c3aed;
+  --color-lilac: #9333ea;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(13, 42, 84, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--accent-neon);
+  color: var(--bg-base);
 }
 
 body {
-  background-color: #0F172A;
-  color: #F8FAFC;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
+/* Subtle page-wide gradient sheen */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34, 211, 238, 0.06), transparent),
+    radial-gradient(ellipse 60% 45% at 85% 110%, rgba(139, 92, 246, 0.06), transparent);
+}
+
+/* ============================================================
+   Keyframe Library
+   ============================================================ */
 @keyframes floatGentle {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes floatReverse {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
 }
 
 @keyframes floatSway {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  33% {
-    transform: translateY(-10px) translateX(6px);
-  }
-  66% {
-    transform: translateY(-4px) translateX(-6px);
-  }
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-10px) translateX(6px); }
+  66% { transform: translateY(-4px) translateX(-6px); }
 }
 
 @keyframes driftSlow {
-  0% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
-  50% {
-    transform: translate(25px, -30px) rotate(8deg);
-  }
-  100% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(25px, -30px) rotate(8deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 @keyframes driftReverse {
-  0% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
-  50% {
-    transform: translate(-30px, 25px) rotate(-8deg);
-  }
-  100% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-30px, 25px) rotate(-8deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 @keyframes auraPulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
+  0%, 100% { opacity: 0.35; transform: scale(0.98); }
+  50% { opacity: 0.7; transform: scale(1.05); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
-  }
-  50% {
-    opacity: 0.85;
-    filter: drop-shadow(0 0 16px rgba(129, 140, 248, 0.6));
-  }
+  0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.3)); }
+  50% { opacity: 0.85; filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.5)); }
 }
 
-.animate-float-gentle {
-  animation: floatGentle 4.5s ease-in-out infinite;
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-.animate-float-reverse {
-  animation: floatReverse 5s ease-in-out infinite;
+@keyframes borderSpin {
+  to { transform: rotate(360deg); }
 }
 
-.animate-float-sway {
-  animation: floatSway 6s ease-in-out infinite;
+@keyframes gridFade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
-.animate-drift-slow {
-  animation: driftSlow 14s ease-in-out infinite;
+/* ============================================================
+   Animation Utility Classes
+   ============================================================ */
+.animate-float-gentle { animation: floatGentle 4.5s ease-in-out infinite; }
+.animate-float-reverse { animation: floatReverse 5s ease-in-out infinite; }
+.animate-float-sway { animation: floatSway 6s ease-in-out infinite; }
+.animate-drift-slow { animation: driftSlow 14s ease-in-out infinite; }
+.animate-drift-reverse { animation: driftReverse 16s ease-in-out infinite; }
+.animate-aura-pulse { animation: auraPulse 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
 }
 
-.animate-drift-reverse {
-  animation: driftReverse 16s ease-in-out infinite;
+/* ============================================================
+   Component Utilities (Futuristic System)
+   ============================================================ */
+
+/* Signature gradient text */
+.text-gradient {
+  background: linear-gradient(90deg, #22d3ee, #4f8dff, #8b5cf6, #22d3ee);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 8s linear infinite;
 }
 
-.animate-aura-pulse {
-  animation: auraPulse 6s ease-in-out infinite;
+/* Animated headline gradient (static positions, cheaper than .text-gradient) */
+.text-gradient-static {
+  background: linear-gradient(90deg, #22d3ee 0%, #4f8dff 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
+/* Glass card */
+.glass {
+  background: var(--glass-bg, rgba(13, 20, 36, 0.65));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border, rgba(56, 86, 148, 0.32));
+}
+
+.glass-strong {
+  background: var(--glass-strong-bg, rgba(7, 11, 20, 0.82));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border, rgba(56, 86, 148, 0.35));
+}
+
+/* Glowing hover border that sweeps on hover */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.55), rgba(139, 92, 246, 0.45), transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.glow-border:hover::before,
+.glow-border:focus-within::before {
+  opacity: 1;
+}
+
+/* Ambient background grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(79, 141, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 141, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 /* Scroll Reveal Utility Classes */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -132,19 +259,64 @@ body {
   transform: translateY(0);
 }
 
-.delay-100 {
-  transition-delay: 100ms;
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* ============================================================
+   Custom Cursor — hidden when the enhanced cursor is active
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  body:has([data-custom-cursor="on"]) {
+    cursor: none;
+  }
+  body:has([data-custom-cursor="on"]) a,
+  body:has([data-custom-cursor="on"]) button,
+  body:has([data-custom-cursor="on"]) [role="button"],
+  body:has([data-custom-cursor="on"]) input,
+  body:has([data-custom-cursor="on"]) textarea,
+  body:has([data-custom-cursor="on"]) select,
+  body:has([data-custom-cursor="on"]) label {
+    cursor: none;
+  }
 }
 
-.delay-200 {
-  transition-delay: 200ms;
+/* ============================================================
+   Light theme polish — darker accents for legibility on white
+   ============================================================ */
+[data-theme="light"] .text-gradient,
+[data-theme="light"] .text-gradient-static {
+  background-image: linear-gradient(90deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
+  animation: none;
 }
 
-.delay-300 {
-  transition-delay: 300ms;
+/* Smooth theme switch without heavy global transitions */
+body,
+.glass,
+.glass-strong {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.delay-400 {
-  transition-delay: 400ms;
+/* ============================================================
+   Reduced Motion — respect the OS setting everywhere
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
-

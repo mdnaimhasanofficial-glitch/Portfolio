@@ -79,12 +79,12 @@ const Resume = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0F172A] px-4 py-8 font-sans text-slate-800 sm:px-6 print:bg-white print:p-0">
+    <main className="min-h-screen bg-ink px-4 py-8 font-sans text-slate-800 sm:px-6 print:bg-white print:p-0">
       {/* Action Bar */}
       <div className="mx-auto mb-6 flex max-w-4xl items-center justify-between gap-3 print:hidden">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-[#1E293B] px-4 py-2.5 text-sm font-semibold text-[#F8FAFC] transition hover:border-[#38BDF8] hover:text-[#38BDF8]"
+          className="inline-flex items-center gap-2 rounded-xl border border-line bg-card px-4 py-2.5 text-sm font-semibold text-fg transition hover:border-neon hover:text-neon"
         >
           <HiArrowLeft />
           Portfolio
@@ -92,7 +92,7 @@ const Resume = () => {
 
         <button
           onClick={handlePrint}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-[#38BDF8] to-[#818CF8] px-4 py-2.5 text-sm font-bold text-[#0F172A] transition hover:opacity-90 shadow-lg shadow-sky-500/20"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-neon to-vio px-4 py-2.5 text-sm font-bold text-ink transition hover:opacity-90 shadow-lg shadow-neon/20"
         >
           <HiPrinter className="text-lg" />
           Print / Save PDF

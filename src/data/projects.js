@@ -1,3 +1,4 @@
+import studioSpace from "../assets/projects/studio-space.svg";
 import project1 from "../assets/projects/project01.png";
 import project2 from "../assets/projects/project02.png";
 import project3 from "../assets/projects/project03.png";
@@ -5,6 +6,35 @@ import project3 from "../assets/projects/project03.png";
 const projects = [
   {
     id: 1,
+    title: "StudioSpace — Full-Stack Studio Booking Platform",
+    image: studioSpace,
+    category: "Featured • Full-Stack Web Application",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Vercel",
+    ],
+    description:
+      "A full-stack studio booking platform built with a modern Next.js frontend on top of a Node.js, Express, and MongoDB backend — designed for browsing studios, viewing availability, and managing booking flows through a clean, responsive interface.",
+    live: "https://studio-space-360.vercel.app/",
+    github: "https://github.com/mdnaimhasanofficial-glitch/Studio-Space",
+    githubBackend: "https://github.com/mdnaimhasanofficial-glitch/Studio-Space-Server",
+    challenges: [
+      "Architected and deployed a full-stack application with a separated Next.js frontend and Node.js/Express backend.",
+      "Built RESTful API endpoints backed by MongoDB to power studio and booking data flows.",
+      "Integrated the two codebases and shipped the complete experience on Vercel."
+    ],
+    future: [
+      "User authentication with role-based dashboards for studio owners and customers",
+      "Interactive calendar views with drag-and-drop slot management",
+      "Email and notification workflows for booking confirmations and reminders"
+    ],
+  },
+  {
+    id: 2,
     title: "FitLog — Workout Tracking Application",
     image: project2,
     category: "Personal Project • Health & Fitness",
@@ -31,7 +61,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Bazar Dor — Digital Market Price Platform",
     image: project1,
     category: "Personal Project • Market Price & Commerce",
@@ -58,7 +88,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Developer Portfolio & Interactive Showcase",
     image: project3,
     category: "Personal Project • Modern Portfolio & ATS Resume",
@@ -71,12 +101,12 @@ const projects = [
       "Vercel"
     ],
     description:
-      "A modern, high-performance personal portfolio built to showcase MERN stack and frontend engineering skills, featuring glassmorphism design, active scroll spy, custom slate color palette, and an ATS-friendly printable resume viewer.",
+      "A futuristic, high-performance personal portfolio built to showcase MERN stack and frontend engineering skills, featuring glassmorphism design, cinematic motion, custom cursor interactions, and an ATS-friendly printable resume viewer.",
     live: "https://portfolio-chi-henna-74.vercel.app/",
     github: "https://github.com/mdnaimhasanofficial-glitch",
     challenges: [
       "Crafted an ATS-compatible, print-optimized resume stylesheet in React.",
-      "Engineered clean modern design system with curated slate dark palette and micro-interactions.",
+      "Engineered a futuristic design system with charcoal base, neon accents, and layered motion interactions.",
       "Ensured fluid responsiveness across ultra-wide monitors down to small mobile viewports."
     ],
     future: [

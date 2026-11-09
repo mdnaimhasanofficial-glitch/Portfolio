@@ -28,7 +28,7 @@ const FloatingScrollTop = () => {
     <button
       onClick={scrollToTop}
       aria-label="Scroll to top of page"
-      className={`fixed bottom-6 right-6 z-50 p-3.5 rounded-2xl bg-[#1E293B]/90 backdrop-blur-xl border border-slate-700/80 text-[#38BDF8] shadow-2xl hover:border-[#38BDF8] hover:text-[#0F172A] hover:bg-gradient-to-r hover:from-[#38BDF8] hover:to-[#818CF8] transition-all duration-300 transform active:scale-90 group cursor-pointer ${
+      className={`fixed bottom-24 right-6 z-50 p-3.5 rounded-2xl bg-card/90 backdrop-blur-xl border border-line/80 text-neon shadow-2xl hover:border-neon hover:text-ink hover:bg-gradient-to-r hover:from-neon hover:to-vio transition-all duration-300 transform active:scale-90 group cursor-pointer ${
         visible
           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
           : "opacity-0 translate-y-6 scale-75 pointer-events-none"

@@ -2,15 +2,15 @@
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="100%" stop-color="#1E293B"/>
+      <stop offset="0%" stop-color="#05070D"/>
+      <stop offset="100%" stop-color="#0D1424"/>
     </linearGradient>
 
     <!-- Vibrant Brand Accent Gradient -->
     <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="50%" stop-color="#60A5FA"/>
-      <stop offset="100%" stop-color="#818CF8"/>
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#4F8DFF"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
     </linearGradient>
 
     <!-- Subtle Outer Glow -->
@@ -21,7 +21,7 @@
   </defs>
 
   <!-- Squircle Base Tile -->
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="#22D3EE" stroke-width="1.5" stroke-opacity="0.4"/>
 
   <!-- Subtle Inner Border Highlight -->
   <rect x="4" y="4" width="56" height="56" rx="14" fill="none" stroke="#F8FAFC" stroke-width="0.75" stroke-opacity="0.08"/>

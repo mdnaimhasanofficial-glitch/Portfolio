@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   FaReact,
   FaJsSquare,
@@ -17,7 +18,6 @@ import {
   SiVite,
   SiPostman,
   SiVercel,
-  SiNetlify,
 } from "react-icons/si";
 import {
   HiOutlineCode,
@@ -28,6 +28,7 @@ import {
   HiOutlineKey,
   HiOutlineDeviceMobile,
 } from "react-icons/hi";
+import SectionHeader from "./SectionHeader";
 
 const categories = [
   { id: "all", name: "All Skills" },
@@ -38,13 +39,12 @@ const categories = [
 ];
 
 const skillsData = [
-  // 1. Frontend Development (from Resume)
+  // Frontend Development
   {
     name: "React.js",
     category: "frontend",
     icon: FaReact,
-    color: "text-cyan-500",
-    bg: "bg-cyan-50/80 border-cyan-200/60",
+    accent: "text-neon",
     badge: "Proficient",
     description: "Component architecture, Hooks, React Router, Context API, SPA state",
   },
@@ -52,8 +52,7 @@ const skillsData = [
     name: "Next.js",
     category: "frontend",
     icon: SiNextdotjs,
-    color: "text-slate-900",
-    bg: "bg-slate-100/80 border-slate-200/60",
+    accent: "text-fg",
     badge: "Learning & Projects",
     description: "Server components, App Router, SSR/SSG, optimized performance",
   },
@@ -61,8 +60,7 @@ const skillsData = [
     name: "TypeScript",
     category: "frontend",
     icon: SiTypescript,
-    color: "text-blue-600",
-    bg: "bg-blue-50/80 border-blue-200/60",
+    accent: "text-electric",
     badge: "Familiar",
     description: "Type safety, interfaces, strict generics, props validation",
   },
@@ -70,8 +68,7 @@ const skillsData = [
     name: "JavaScript (ES6+)",
     category: "frontend",
     icon: FaJsSquare,
-    color: "text-amber-500",
-    bg: "bg-amber-50/80 border-amber-200/60",
+    accent: "text-amber-400",
     badge: "Proficient",
     description: "Async/Await, Promises, Array methods, closures, DOM manipulation",
   },
@@ -79,8 +76,7 @@ const skillsData = [
     name: "Tailwind CSS",
     category: "frontend",
     icon: SiTailwindcss,
-    color: "text-teal-500",
-    bg: "bg-teal-50/80 border-teal-200/60",
+    accent: "text-cyan-400",
     badge: "Proficient",
     description: "Modern utility classes, glassmorphism, responsive design, dark mode",
   },
@@ -88,8 +84,7 @@ const skillsData = [
     name: "HTML5 & Semantic Markup",
     category: "frontend",
     icon: FaHtml5,
-    color: "text-orange-500",
-    bg: "bg-orange-50/80 border-orange-200/60",
+    accent: "text-orange-400",
     badge: "Advanced",
     description: "Semantic elements, accessible structures (a11y), clean document tree",
   },
@@ -97,8 +92,7 @@ const skillsData = [
     name: "CSS3 & Animations",
     category: "frontend",
     icon: FaCss3Alt,
-    color: "text-blue-500",
-    bg: "bg-blue-50/80 border-blue-200/60",
+    accent: "text-sky-400",
     badge: "Advanced",
     description: "Flexbox, CSS Grid, media queries, smooth keyframe animations",
   },
@@ -106,19 +100,17 @@ const skillsData = [
     name: "Responsive Web Design",
     category: "frontend",
     icon: HiOutlineDeviceMobile,
-    color: "text-indigo-500",
-    bg: "bg-indigo-50/80 border-indigo-200/60",
+    accent: "text-vio",
     badge: "Proficient",
     description: "Mobile-first layouts, fluid viewports, cross-device compatibility",
   },
 
-  // 2. Backend Development (from Resume)
+  // Backend Development
   {
     name: "Node.js",
     category: "backend",
     icon: FaNodeJs,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50/80 border-emerald-200/60",
+    accent: "text-emerald-400",
     badge: "MERN Intern",
     description: "Runtime environment, event loop, asynchronous non-blocking I/O",
   },
@@ -126,8 +118,7 @@ const skillsData = [
     name: "Express.js",
     category: "backend",
     icon: SiExpress,
-    color: "text-slate-700",
-    bg: "bg-slate-100/80 border-slate-200/60",
+    accent: "text-muted",
     badge: "MERN Intern",
     description: "Routing, custom middleware, error handlers, RESTful API endpoints",
   },
@@ -135,8 +126,7 @@ const skillsData = [
     name: "REST APIs",
     category: "backend",
     icon: HiOutlineServer,
-    color: "text-blue-600",
-    bg: "bg-blue-50/80 border-blue-200/60",
+    accent: "text-electric",
     badge: "Working Knowledge",
     description: "HTTP status codes, request/response lifecycle, JSON serialization",
   },
@@ -144,19 +134,17 @@ const skillsData = [
     name: "CRUD Operations",
     category: "backend",
     icon: HiOutlineDatabase,
-    color: "text-violet-600",
-    bg: "bg-violet-50/80 border-violet-200/60",
+    accent: "text-lilac",
     badge: "Working Knowledge",
     description: "Create, Read, Update, Delete data flows with proper validations",
   },
 
-  // 3. Database & Authentication (from Resume)
+  // Database & Authentication
   {
     name: "MongoDB",
     category: "database",
     icon: SiMongodb,
-    color: "text-emerald-500",
-    bg: "bg-emerald-50/80 border-emerald-200/60",
+    accent: "text-emerald-400",
     badge: "MERN Stack",
     description: "NoSQL document collections, querying, indexing, data modeling",
   },
@@ -164,8 +152,7 @@ const skillsData = [
     name: "Database Operations",
     category: "database",
     icon: HiOutlineDatabase,
-    color: "text-teal-600",
-    bg: "bg-teal-50/80 border-teal-200/60",
+    accent: "text-teal-400",
     badge: "MERN Stack",
     description: "Schema design, data persistence, sanitization, filtering",
   },
@@ -173,19 +160,17 @@ const skillsData = [
     name: "Better Auth & Auth Flows",
     category: "database",
     icon: HiOutlineKey,
-    color: "text-amber-600",
-    bg: "bg-amber-50/80 border-amber-200/60",
+    accent: "text-amber-400",
     badge: "Learning & Practice",
     description: "Authentication patterns, token handling, protected route patterns",
   },
 
-  // 4. Tools & Technologies (from Resume)
+  // Tools & Technologies
   {
     name: "Git & GitHub",
     category: "tools",
     icon: FaGitAlt,
-    color: "text-orange-600",
-    bg: "bg-orange-50/80 border-orange-200/60",
+    accent: "text-orange-400",
     badge: "Daily Use",
     description: "Feature branches, commits, pull requests, version control",
   },
@@ -193,8 +178,7 @@ const skillsData = [
     name: "Vite",
     category: "tools",
     icon: SiVite,
-    color: "text-purple-600",
-    bg: "bg-purple-50/80 border-purple-200/60",
+    accent: "text-vio",
     badge: "Daily Use",
     description: "Fast HMR, optimized build configurations, asset bundling",
   },
@@ -202,8 +186,7 @@ const skillsData = [
     name: "npm",
     category: "tools",
     icon: FaNpm,
-    color: "text-red-600",
-    bg: "bg-red-50/80 border-red-200/60",
+    accent: "text-rose-400",
     badge: "Daily Use",
     description: "Package management, script automation, dependency resolution",
   },
@@ -211,8 +194,7 @@ const skillsData = [
     name: "Postman",
     category: "tools",
     icon: SiPostman,
-    color: "text-orange-500",
-    bg: "bg-orange-50/80 border-orange-200/60",
+    accent: "text-orange-400",
     badge: "API Testing",
     description: "API testing, headers inspection, body payload validation",
   },
@@ -220,8 +202,7 @@ const skillsData = [
     name: "Vercel & Netlify",
     category: "tools",
     icon: SiVercel,
-    color: "text-slate-900",
-    bg: "bg-slate-100/80 border-slate-200/60",
+    accent: "text-fg",
     badge: "Deployment",
     description: "Continuous deployment from Git, environment variables, hosting",
   },
@@ -236,91 +217,103 @@ const Skills = () => {
       : skillsData.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-[#0F172A]">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-[#38BDF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#818CF8]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <section
+      id="skills"
+      className="relative mx-auto max-w-7xl overflow-hidden px-6 py-24 md:px-12"
+    >
+      <div className="pointer-events-none absolute -z-10 right-10 top-20 h-96 w-96 rounded-full bg-neon/5 blur-3xl" />
+      <div className="pointer-events-none absolute -z-10 bottom-10 left-10 h-96 w-96 rounded-full bg-vio/5 blur-3xl" />
 
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E293B] border border-[#38BDF8]/30 text-[#38BDF8] text-xs font-bold uppercase tracking-wider shadow-sm">
-          <HiOutlineSparkles className="text-[#38BDF8] text-sm" />
-          <span>Technical Expertise</span>
-        </div>
+      <SectionHeader
+        icon={HiOutlineSparkles}
+        eyebrow="Technical Expertise"
+        title="Skills &"
+        highlight="Technologies"
+        description="The core tools, languages, and frameworks I use to build modern full-stack and frontend applications."
+      />
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F8FAFC] tracking-tight">
-          Skills &amp;{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#38BDF8]">
-            Technologies
-          </span>
-        </h2>
-
-        <p className="text-base sm:text-lg text-[#94A3B8]">
-          The core tools, languages, and frameworks I use to build modern MERN stack and frontend applications.
-        </p>
-
-        {/* Capsule Category Filter Tabs */}
-        <div className="pt-6 flex flex-wrap items-center justify-center gap-2">
-          <div className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-full bg-[#1E293B] border border-slate-700/80 shadow-inner gap-1">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              const isActive = activeCategory === category.id;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0F172A] font-bold shadow-md shadow-[#38BDF8]/25"
-                      : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#0F172A]/50"
-                  }`}
-                >
+      {/* Category filter */}
+      <div className="flex flex-wrap items-center justify-center gap-2 pb-10">
+        <div className="glass-strong flex flex-wrap items-center justify-center gap-1 rounded-full p-1.5 shadow-inner">
+          {categories.map((category) => {
+            const Icon = category.icon;
+            const isActive = activeCategory === category.id;
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => setActiveCategory(category.id)}
+                className={`relative inline-flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200 sm:text-sm ${
+                  isActive
+                    ? "text-ink font-bold"
+                    : "text-muted hover:text-fg"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="skills-active-tab"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-neon to-vio shadow-md shadow-neon/25"
+                  />
+                )}
+                <span className="relative z-10 inline-flex items-center gap-2">
                   {Icon && <Icon className="text-base" />}
                   <span>{category.name}</span>
-                </button>
-              );
-            })}
-          </div>
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {filteredSkills.map((skill) => {
-          const Icon = skill.icon;
-          return (
-            <div
-              key={skill.name}
-              className="group relative bg-[#1E293B] hover:bg-[#1E293B]/95 rounded-2xl border border-slate-700/70 hover:border-[#38BDF8]/60 p-5 shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-            >
-              {/* Card Top */}
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="p-3 rounded-xl border bg-[#0F172A] border-slate-700 text-[#38BDF8] group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                  <Icon className="text-2xl text-[#38BDF8]" />
+      {/* Skills grid with animated insertion/removal */}
+      <motion.div
+        layout
+        className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        <AnimatePresence mode="popLayout">
+          {filteredSkills.map((skill) => {
+            const Icon = skill.icon;
+            return (
+              <motion.div
+                key={skill.name}
+                layout
+                initial={{ opacity: 0, y: 22, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="glass glow-border group flex flex-col justify-between rounded-2xl p-5 shadow-xl"
+              >
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div
+                    className={`rounded-xl border border-line bg-panel p-3 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 ${skill.accent}`}
+                    style={{ filter: "drop-shadow(0 0 12px rgba(34,211,238,0.12))" }}
+                  >
+                    <Icon className="text-2xl" />
+                  </div>
+                  <span className="rounded-full border border-neon/30 bg-panel px-2.5 py-0.5 text-[11px] font-bold text-neon shadow-xs">
+                    {skill.badge}
+                  </span>
                 </div>
-                <span className="text-[11px] font-bold text-[#38BDF8] bg-[#0F172A] border border-[#38BDF8]/30 px-2.5 py-0.5 rounded-full shadow-xs">
-                  {skill.badge}
-                </span>
-              </div>
 
-              <div>
-                <h3 className="text-base font-extrabold text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors">
-                  {skill.name}
-                </h3>
-                <p className="text-xs text-[#94A3B8] mt-1.5 leading-relaxed">
-                  {skill.description}
-                </p>
-              </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-fg transition-colors group-hover:text-neon">
+                    {skill.name}
+                  </h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted">
+                    {skill.description}
+                  </p>
+                </div>
 
-              {/* Bottom Subtle Bar */}
-              <div className="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-[11px] text-[#94A3B8] font-semibold uppercase tracking-wider">
-                <span>{skill.category}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] transition-colors"></span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                <div className="mt-4 flex items-center justify-between border-t border-line/60 pt-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                  <span>{skill.category}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-neon/40 transition-colors group-hover:bg-neon" />
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };

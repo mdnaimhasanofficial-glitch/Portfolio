@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- Apply stored theme before first paint (prevents flash of wrong theme) -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("naim-theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Primary Title & SEO Meta Tags -->
     <title>Developer Naim | Md Naim Hasan - MERN Stack Developer</title>
     <meta
@@ -22,7 +33,7 @@
     <meta name="author" content="Md Naim Hasan (Developer Naim)" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="theme-color" content="#0F172A" />
+    <meta name="theme-color" content="#05070D" />
 
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="google4e73f9ea42208cfa" />
@@ -116,8 +127,14 @@
     <!-- Preconnect to Google Fonts for optimum performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts: Space Grotesk (display) + Inter (body), swap for zero layout shift penalty -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-[#0F172A] text-[#F8FAFC] antialiased selection:bg-[#38BDF8] selection:text-[#0F172A]">
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
