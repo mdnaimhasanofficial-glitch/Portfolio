@@ -1,9 +1,43 @@
+import fixmate from "../assets/projects/fixmate.svg";
 import studioSpace from "../assets/projects/studio-space.svg";
 import project1 from "../assets/projects/project01.png";
 import project2 from "../assets/projects/project02.png";
 import project3 from "../assets/projects/project03.png";
 
 const projects = [
+  {
+    id: 5,
+    title: "FixMate — Home & Office Repair Marketplace",
+    image: fixmate,
+    category: "Assignment 09 • Full-Stack Web Application",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Express.js",
+      "MongoDB",
+      "BetterAuth",
+      "Stripe",
+      "Vercel",
+    ],
+    description:
+      "A full-stack repair-services marketplace where customers request repairs, technicians run jobs from their own dashboard, and admins moderate users, services, bookings and payments — a Next.js (App Router, TypeScript, shadcn/ui) frontend on a separate Express + MongoDB REST API.",
+    live: "https://fixmateclient-steel.vercel.app/",
+    github: "https://github.com/mdnaimhasanofficial-glitch/FixMate_Client",
+    githubBackend: "https://github.com/mdnaimhasanofficial-glitch/FixMate_Server",
+    challenges: [
+      "Implemented session-based auth with BetterAuth and role-based access control (customer / technician / admin) across three guarded dashboards.",
+      "Built an Express 5 + MongoDB REST API with a validated booking status pipeline, service approval moderation, and route-level authorization middleware.",
+      "Integrated Stripe Checkout with webhook signature verification for repair payments, plus ImgBB photo uploads and recharts analytics."
+    ],
+    future: [
+      "Google OAuth sign-in and email notifications for booking status changes",
+      "Subscription plan limits and recurring billing through Stripe",
+      "Technician availability calendar with real-time bookable time slots"
+    ],
+  },
   {
     id: 1,
     title: "StudioSpace — Full-Stack Studio Booking Platform",

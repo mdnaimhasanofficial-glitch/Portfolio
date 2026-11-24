@@ -18,7 +18,7 @@ const Projects = () => {
         eyebrow="My Featured Work"
         title="Featured"
         highlight="Projects"
-        description="Real-world web applications built with modern frontend and full-stack technologies — from a standalone Next.js platform to complete MERN deployments."
+        description="Real-world web applications built with modern frontend and full-stack technologies — from role-based Next.js dashboards to complete MERN deployments."
       />
 
       {/* Projects grid with staggered reveal */}

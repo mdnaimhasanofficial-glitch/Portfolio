@@ -456,11 +456,11 @@ const Hero = () => {
                 className="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl glass-strong p-3.5 shadow-xl flex items-center"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-neon to-vio text-lg font-bold text-ink shadow-md">
-                  3+
+                  5+
                 </div>
                 <div>
                   <p className="text-xs font-bold text-fg">Featured Projects</p>
-                  <p className="text-[11px] text-muted">StudioSpace Live</p>
+                  <p className="text-[11px] text-muted">FixMate &amp; StudioSpace Live</p>
                 </div>
               </motion.div>
             </div>

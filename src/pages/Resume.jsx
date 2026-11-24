@@ -17,11 +17,11 @@ const Resume = () => {
   const skills = [
     {
       title: "Frontend Development",
-      items: "HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Tailwind CSS, Responsive Design",
+      items: "HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, Responsive Design",
     },
     {
       title: "Backend Development",
-      items: "Node.js, Express.js, REST APIs, CRUD Operations, Authentication",
+      items: "Node.js, Express.js, REST APIs, CRUD Operations, Authentication, Stripe Payments",
     },
     {
       title: "Database & Authentication",
@@ -35,10 +35,24 @@ const Resume = () => {
 
   const projects = [
     {
+      name: "FixMate — Home & Office Repair Marketplace",
+      type: "Assignment 09 • Full-Stack Project",
+      link: "https://fixmateclient-steel.vercel.app/",
+      stack: "Next.js • TypeScript • Tailwind CSS • shadcn/ui • Express • MongoDB • Stripe",
+      description:
+        "A full-stack repair-services marketplace where customers request repairs, technicians manage jobs from their own dashboard, and admins moderate users, services, bookings and payments.",
+      points: [
+        "Built a Next.js (App Router, TypeScript) + shadcn/ui frontend on a separate Express and MongoDB REST API with a clear role-based architecture.",
+        "Implemented BetterAuth session authentication with customer, technician and admin roles, guarded dashboards, and route-level access control.",
+        "Integrated Stripe Checkout with webhook verification for repair payments, plus payment history, service moderation, and recharts analytics.",
+      ],
+      color: "orange",
+    },
+    {
       name: "FitLog — Workout Tracking Application",
       type: "Personal Project",
       link: "https://fit-log-phi-henna.vercel.app/",
-      stack: "Web Development",
+      stack: "React.js • Tailwind CSS • JavaScript (ES6+)",
       description:
         "A workout-focused web application designed to help users explore workout-related content and organize their fitness activities.",
       points: [
@@ -52,7 +66,7 @@ const Resume = () => {
       name: "Bazar Dor — Digital Market Price Platform",
       type: "Personal Project",
       link: "https://bazar-dor-utn4.vercel.app/",
-      stack: "Web Development",
+      stack: "React.js • Tailwind CSS • REST APIs",
       description:
         "A web project focused on presenting market price-related information through a digital interface.",
       points: [
@@ -303,6 +317,11 @@ const Resume = () => {
                     <p className="mt-1 text-xs font-medium text-slate-500">
                       {project.type}
                     </p>
+                    {project.stack && (
+                      <p className="mt-0.5 text-xs font-semibold text-slate-600">
+                        {project.stack}
+                      </p>
+                    )}
                   </div>
 
                   <a

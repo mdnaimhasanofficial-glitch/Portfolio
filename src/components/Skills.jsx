@@ -18,6 +18,7 @@ import {
   SiVite,
   SiPostman,
   SiVercel,
+  SiStripe,
 } from "react-icons/si";
 import {
   HiOutlineCode,
@@ -53,7 +54,7 @@ const skillsData = [
     category: "frontend",
     icon: SiNextdotjs,
     accent: "text-fg",
-    badge: "Learning & Projects",
+    badge: "Project Experience",
     description: "Server components, App Router, SSR/SSG, optimized performance",
   },
   {
@@ -104,6 +105,14 @@ const skillsData = [
     badge: "Proficient",
     description: "Mobile-first layouts, fluid viewports, cross-device compatibility",
   },
+  {
+    name: "shadcn/ui",
+    category: "frontend",
+    icon: HiOutlineCode,
+    accent: "text-neon",
+    badge: "Project Experience",
+    description: "Accessible component patterns, Tailwind primitives, theme tokens",
+  },
 
   // Backend Development
   {
@@ -138,6 +147,14 @@ const skillsData = [
     badge: "Working Knowledge",
     description: "Create, Read, Update, Delete data flows with proper validations",
   },
+  {
+    name: "Stripe Payments",
+    category: "backend",
+    icon: SiStripe,
+    accent: "text-electric",
+    badge: "Project Experience",
+    description: "Checkout sessions, webhook signature verification, payment history",
+  },
 
   // Database & Authentication
   {
@@ -161,7 +178,7 @@ const skillsData = [
     category: "database",
     icon: HiOutlineKey,
     accent: "text-amber-400",
-    badge: "Learning & Practice",
+    badge: "Project Experience",
     description: "Authentication patterns, token handling, protected route patterns",
   },
 
