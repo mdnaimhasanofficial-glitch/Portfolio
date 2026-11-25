@@ -1,8 +1,8 @@
-
 import { Link } from "react-router-dom";
 import {
   HiArrowLeft,
   HiPrinter,
+  HiDocumentDownload,
   HiMail,
   HiPhone,
   HiLocationMarker,
@@ -17,15 +17,18 @@ const Resume = () => {
   const skills = [
     {
       title: "Frontend Development",
-      items: "HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, Responsive Design",
+      items:
+        "HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, Responsive Design",
     },
     {
       title: "Backend Development",
-      items: "Node.js, Express.js, REST APIs, CRUD Operations, Authentication, Stripe Payments",
+      items:
+        "Node.js, Express.js, REST APIs, CRUD Operations, Authentication, Stripe Payments",
     },
     {
       title: "Database & Authentication",
-      items: "MongoDB, Database Operations, Better Auth (Learning & Implementation)",
+      items:
+        "MongoDB, Database Operations, Better Auth (Learning & Implementation)",
     },
     {
       title: "Tools & Technologies",
@@ -38,7 +41,8 @@ const Resume = () => {
       name: "FixMate — Home & Office Repair Marketplace",
       type: "Assignment 09 • Full-Stack Project",
       link: "https://fixmateclient-steel.vercel.app/",
-      stack: "Next.js • TypeScript • Tailwind CSS • shadcn/ui • Express • MongoDB • Stripe",
+      stack:
+        "Next.js • TypeScript • Tailwind CSS • shadcn/ui • Express • MongoDB • Stripe",
       description:
         "A full-stack repair-services marketplace where customers request repairs, technicians manage jobs from their own dashboard, and admins moderate users, services, bookings and payments.",
       points: [
@@ -95,7 +99,7 @@ const Resume = () => {
   return (
     <main className="min-h-screen bg-ink px-4 py-8 font-sans text-slate-800 sm:px-6 print:bg-white print:p-0">
       {/* Action Bar */}
-      <div className="mx-auto mb-6 flex max-w-4xl items-center justify-between gap-3 print:hidden">
+      <div className="mx-auto mb-6 flex max-w-4xl flex-wrap items-center justify-between gap-3 print:hidden">
         <Link
           to="/"
           className="inline-flex items-center gap-2 rounded-xl border border-line bg-card px-4 py-2.5 text-sm font-semibold text-fg transition hover:border-neon hover:text-neon"
@@ -104,13 +108,35 @@ const Resume = () => {
           Portfolio
         </Link>
 
-        <button
-          onClick={handlePrint}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-neon to-vio px-4 py-2.5 text-sm font-bold text-ink transition hover:opacity-90 shadow-lg shadow-neon/20"
-        >
-          <HiPrinter className="text-lg" />
-          Print / Save PDF
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href="/Md_Naim_Hasan_CV.pdf"
+            download
+            aria-label="Download Md Naim Hasan CV as PDF"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line bg-card px-4 py-2.5 text-sm font-semibold text-fg transition hover:border-neon hover:text-neon"
+          >
+            <HiDocumentDownload className="text-lg text-neon" />
+            Download CV
+          </a>
+
+          <a
+            href="/Md_Naim_Hasan_Resume.pdf"
+            download
+            aria-label="Download Md Naim Hasan Resume as PDF"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line bg-card px-4 py-2.5 text-sm font-semibold text-fg transition hover:border-vio hover:text-vio"
+          >
+            <HiDocumentDownload className="text-lg text-vio" />
+            Download Resume
+          </a>
+
+          <button
+            onClick={handlePrint}
+            className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-linear-to-r from-neon to-vio px-4 py-2.5 text-sm font-bold text-ink transition hover:opacity-90 shadow-lg shadow-neon/20"
+          >
+            <HiPrinter className="text-lg" />
+            Print / Save PDF
+          </button>
+        </div>
       </div>
 
       {/* Resume Sheet */}
@@ -146,8 +172,7 @@ const Resume = () => {
                 MERN Stack Intern
               </span>
               <p className="mt-2 text-xs text-slate-500">
-                Daffodil International Professional Training Institute
-                (DIPTI)
+                Daffodil International Professional Training Institute (DIPTI)
               </p>
             </div>
           </div>
@@ -217,12 +242,11 @@ const Resume = () => {
           <p className="text-sm leading-6 text-slate-700">
             Motivated MERN Stack Intern and aspiring full-stack web developer
             with hands-on project experience in modern JavaScript-based web
-            development. Familiar with React.js, Next.js, TypeScript,
-            Tailwind CSS, Node.js, Express.js, and MongoDB. Interested in
-            building maintainable, responsive, and user-friendly applications.
-            Eager to strengthen problem-solving skills, learn industry
-            practices, and contribute to collaborative software development
-            projects.
+            development. Familiar with React.js, Next.js, TypeScript, Tailwind
+            CSS, Node.js, Express.js, and MongoDB. Interested in building
+            maintainable, responsive, and user-friendly applications. Eager to
+            strengthen problem-solving skills, learn industry practices, and
+            contribute to collaborative software development projects.
           </p>
         </section>
 
@@ -254,12 +278,9 @@ const Resume = () => {
           <div className="border-l-2 border-blue-600 pl-4">
             <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-start">
               <div>
-                <h3 className="font-bold text-slate-900">
-                  MERN Stack Intern
-                </h3>
+                <h3 className="font-bold text-slate-900">MERN Stack Intern</h3>
                 <p className="text-sm font-medium text-blue-700">
-                  Daffodil International Professional Training Institute
-                  (DIPTI)
+                  Daffodil International Professional Training Institute (DIPTI)
                 </p>
               </div>
 
@@ -274,12 +295,12 @@ const Resume = () => {
                 developing practical web development skills.
               </li>
               <li>
-                Building on existing knowledge of React, JavaScript,
-                TypeScript, and modern frontend development.
+                Building on existing knowledge of React, JavaScript, TypeScript,
+                and modern frontend development.
               </li>
               <li>
-                Strengthening backend, database, API integration, and
-                full-stack application development skills.
+                Strengthening backend, database, API integration, and full-stack
+                application development skills.
               </li>
             </ul>
           </div>
@@ -292,9 +313,9 @@ const Resume = () => {
               Programming Hero
             </p>
             <p className="mt-1 text-sm leading-5 text-slate-700">
-              Learning modern web development through practical exercises
-              and projects, covering JavaScript, TypeScript, React, Next.js,
-              and related frontend technologies.
+              Learning modern web development through practical exercises and
+              projects, covering JavaScript, TypeScript, React, Next.js, and
+              related frontend technologies.
             </p>
           </div>
         </section>
@@ -311,9 +332,7 @@ const Resume = () => {
               >
                 <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                   <div>
-                    <h3 className="font-bold text-slate-900">
-                      {project.name}
-                    </h3>
+                    <h3 className="font-bold text-slate-900">{project.name}</h3>
                     <p className="mt-1 text-xs font-medium text-slate-500">
                       {project.type}
                     </p>
@@ -364,9 +383,7 @@ const Resume = () => {
               <p className="mt-1 text-sm text-slate-600">
                 UST Private Polytechnic Institute
               </p>
-              <p className="text-sm text-slate-600">
-                Nilphamari, Bangladesh
-              </p>
+              <p className="text-sm text-slate-600">Nilphamari, Bangladesh</p>
             </div>
             <span className="text-sm font-medium text-slate-500">
               Completed
@@ -374,12 +391,8 @@ const Resume = () => {
           </div>
 
           <div className="mt-4">
-            <h3 className="font-bold text-slate-900">
-              SSC / Dakhil
-            </h3>
-            <p className="mt-1 text-sm text-slate-600">
-              GPA: 3.94
-            </p>
+            <h3 className="font-bold text-slate-900">SSC / Dakhil</h3>
+            <p className="mt-1 text-sm text-slate-600">GPA: 3.94</p>
           </div>
         </section>
 
@@ -404,8 +417,8 @@ const Resume = () => {
                 Professional Interests
               </h3>
               <p className="text-sm leading-5 text-slate-700">
-                Full-Stack Development, REST API Development, Database
-                Design, Responsive Web Applications, and Problem Solving.
+                Full-Stack Development, REST API Development, Database Design,
+                Responsive Web Applications, and Problem Solving.
               </p>
             </div>
           </div>

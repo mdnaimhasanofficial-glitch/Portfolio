@@ -91,7 +91,7 @@ const CountUp = ({ value, suffix = "" }) => {
 };
 
 const stats = [
-  { value: 3, suffix: "+", label: "Featured Projects" },
+  { value: 5, suffix: "+", label: "Featured Projects" },
   { text: "DIPTI", label: "MERN Intern" },
   { text: "100%", label: "Dedicated" },
 ];

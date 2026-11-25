@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   HiDocumentText,
+  HiDocumentDownload,
   HiArrowRight,
   HiSparkles,
   HiCode,
@@ -211,11 +212,39 @@ const Hero = () => {
             </a>
           </motion.div>
 
+          {/* Direct PDF downloads — CV & Resume */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: BASE_DELAY + 0.78, ease: EASE_OUT }}
+            className="flex flex-wrap items-center gap-3 pt-1"
+          >
+            <a
+              href="/Md_Naim_Hasan_CV.pdf"
+              download
+              aria-label="Download Md Naim Hasan CV as PDF"
+              className="glass glow-border group inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-fg shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:text-neon hover:shadow-md sm:text-base"
+            >
+              <HiDocumentDownload className="text-lg text-neon" />
+              <span>Download CV</span>
+            </a>
+
+            <a
+              href="/Md_Naim_Hasan_Resume.pdf"
+              download
+              aria-label="Download Md Naim Hasan Resume as PDF"
+              className="glass glow-border group inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-fg shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:text-vio hover:shadow-md sm:text-base"
+            >
+              <HiDocumentDownload className="text-lg text-vio" />
+              <span>Download Resume</span>
+            </a>
+          </motion.div>
+
           {/* Core tech stack badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: BASE_DELAY + 0.85, ease: EASE_OUT }}
+            transition={{ duration: 0.6, delay: BASE_DELAY + 0.95, ease: EASE_OUT }}
             className="border-t border-line pt-5"
           >
             <p className="mb-3 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-muted">
